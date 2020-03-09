@@ -54,7 +54,6 @@ def store(num_imag):
     except dynamodbClient.exceptions.ResourceNotFoundException:
         labelsTable = createImagesTable('labels')
     
-    print(labelsTable)
 
     tempImages = {}
     num = int(num_imag)
@@ -70,10 +69,13 @@ def store(num_imag):
 
     tag = {}
 
+
+
     label = labels.getNext()
+    print("creating labels")
     while(label):
-        if label[1] == "http://www.w3.org/2000/01/rdf-schema#label" and label[0] in imagesTable:
-            #label[0] in imagesTable:
+        if label[1] == "http://www.w3.org/2000/01/rdf-schema#label":
+            #label[0] in tempImages and 
             labelsTable = label[2].split(" ")
             for entry in labelsTable:
                 #Save stem word
