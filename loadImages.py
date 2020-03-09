@@ -14,7 +14,7 @@ images = ParseTripe.ParseTriples("images.ttl")
 
 #setting a limit of 100 images to load
 i = 0
-while (i <= 100):
+while (i <= 400):
     image = images.getNext()
     #filter if the image is not a thumbnail
     if "depiction" in image[1]:
